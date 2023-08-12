@@ -1,0 +1,237 @@
+/* CSS Document */
+:root
+{
+    --anim_left_start: 0;
+    --anim_top_start: 0;
+    --anim_left_end: 95%;
+    --anim_top_end: 95%;
+}
+
+body
+{
+    width: 99%;
+    height: 800px;
+
+    background-image: linear-gradient(to top, #7A9D54FF, #7A9D5490, #7A9D5490, #7A9D5490, #7A9D54FF);
+    background-repeat: no-repeat ;
+    background-size: 100% 200%;
+}
+
+@keyframes animSymbol {
+    0% {left: var(--anim_left_start); top: var(--anim_top_start);}
+    100% {left: var(--anim_left_end); top: var(--anim_top_end); transform: rotateZ(180deg);}
+}
+
+#topContainer
+{
+    width: 100%;
+    height: 10%;
+    background-color: transparent;
+    position: fixed;
+    margin-left: auto;
+    left: 0;
+
+
+    box-shadow: 0px 3px #00000080;
+}
+#topLogotipo
+{
+    position: absolute;
+    background-image: url('https://ucarecdn.com/2c104d41-e146-45bd-a102-8e81ea3d6a76/logotipo.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+#topUserInfoPanel
+{    
+    float: right;
+    position: relative;
+    width: 200px;
+    height: 99%;
+    background-color: transparent;
+
+    border: solid white 0.0px;
+    border-bottom: 0;
+}
+#topUserEditIcon
+{
+    position: absolute;
+    height: 30px;
+    width: 35px;
+    top: 30%;
+    left: 82.5px;
+    background-image: url('https://ucarecdn.com/0f467c32-269a-417b-a3dd-6be082d452f5/settingicon.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    border-style: none;
+    display: none;
+}
+#topUserName
+{
+    float: right;
+    color: white;
+    height: 100%;
+    text-align: right;
+    padding-right: 5px;
+}
+
+#centerContainer
+{
+    position: relative;
+    top: 30%;
+    left: 35%;
+    background-color: white;
+    width: 400px;
+    height: 500px;
+    border-radius: 1cm;
+
+    box-shadow: 5px 10px #7A9D54FF;
+}
+
+.centerButtons
+{
+    position: absolute;
+    width: 85%;
+    height: 10%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    top: 5%;
+    left: 6.5%;
+    background-color: #000000D6;
+    border-radius: 1cm;
+}
+.centerButton
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1cm;
+
+    font-size: 250%;
+    text-align: center;
+    color: white;
+}
+
+#centerButton2
+{
+    top: 20%;
+}
+#centerButton3
+{
+    top: 35%;
+}
+#centerButton4
+{
+    top: 80%;
+    background-color: #B04759;
+}
+
+.settingsWindow iframe
+{
+    position: fixed;
+    width: 485px;
+    height: 305px;
+    top: 252.5px;
+    left: 30%;
+
+    border: none;
+}
+
+iframe.roomsWindow
+{
+    position: absolute;
+    width: 60%;
+    height: 600px;
+    top: 25%;
+    left: 25%;
+    border: none;
+}
+
+.animSymbols-diamond
+{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-image: url('https://ucarecdn.com/7af8ae79-6f52-4644-9cc6-10971c9b0958/diamond.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    animation-name: animSymbol;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.animSymbols-heart
+{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-image: url('https://ucarecdn.com/9f93b691-d48b-4f87-aa7f-e50fe0701bd6/heart.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    animation-name: animSymbol;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.animSymbols-club
+{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-image: url('https://ucarecdn.com/d77ad93d-8429-4042-a031-e57e2ac54e10/club.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    animation-name: animSymbol;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.animSymbols-spade
+{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-image: url('https://ucarecdn.com/d1cd2994-9933-46c6-bb0a-2d99ba81f0ed/spade.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    animation-name: animSymbol;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/*a:link.centerButton 
+{
+    text-decoration: none;
+}
+a:visited.centerButton 
+{
+    text-decoration: none;
+}
+a:hover.centerButton 
+{
+    text-decoration: none;
+    bottom: 2px;
+    background-color: black;
+    cursor: pointer;
+}
+a:hover#exitButton
+{
+    text-decoration: none;
+    bottom: 2px;
+    background-color: #CD1818;
+    cursor: pointer;
+}
+a:active.centerButton 
+{
+    text-decoration: none;
+}*/

@@ -1,0 +1,219 @@
+:root
+{
+    --anim_left_start: 0;
+    --anim_top_start: 0;
+    --anim_left_end: 95%;
+    --anim_top_end: 95%;
+}
+
+html,
+body
+{
+    background-color: #4c9a2a;
+    height: 100vh;
+    margin: 0px;
+}
+
+#header
+{
+    height: 10%; width: 100%;
+    border-style: solid; border-top: 0px; border-left: 0px; border-right: 0px;
+    border-color: white;
+}
+
+#roomHeader
+{
+    position: absolute;
+    width: 30%; height: 10%;
+    z-index: 1;
+    top: 0px; left: 35%;
+    text-align: center;
+    text-shadow: 2px 2px black;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    border-style: solid; border-bottom: 0px; border-top: 0px;
+    background-color: #ACDF87;
+}
+
+#pageContent
+{
+    position: absolute;
+    width: 80%; height: 80%;
+    left: 10%;
+    background-color: #1e5631;
+    border-style: solid; border-top: 0px; border-color: white;
+    border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
+}
+
+#roomStatusText
+{
+    position: absolute;
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 150%;
+    width: 100%; height: 10%;
+}
+#roomPlayersCount
+{
+    position: absolute;
+    width: 100%; height: 15%;
+    top: 10%;
+    text-align: center;
+    font-style: italic;
+    font-family: Verdana;
+    font-size: 200%;
+    color: white;
+}
+#roomBottomContainer
+{
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    top: 75%;
+}
+#btnReady
+{
+    position: absolute;
+    height: 25%; width: 25%;
+    left: 37.5%; top: 37.5%;
+    background-color: transparent;
+    border-radius: 20px;
+    border-width: 1px;
+    color: white;
+    background-color: #68bb59;
+}
+
+#playerCenterContainer
+{
+    position: absolute;
+    border: white solid; border-left: 0px; border-right: 0px;
+    width: 100%; height: 50%;
+    top: 25%;
+}
+
+.playerContainer
+{
+    position: absolute;
+    height: 90%; width: 15%;
+    border: solid white;
+    border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
+    left: 5%; top: 5%;
+}
+.playerPicture
+{
+    position: absolute;
+    height: 30%; width: 50%;
+    border: white dashed;
+    border-radius: 50%;
+    left: 25%; top: 5%;
+    background-image: url('https://ucarecdn.com/eb2e2231-f3f4-4932-b063-b65eedaa0161/person.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.playerBottomContainer
+{
+    position: absolute;
+    border: white solid;
+    border-left: 0px; border-right: 0px; border-bottom: 0px;
+    height: 50%; width: 100%;
+    left: 0px; top: 50%;
+
+    color: #a4de02;
+    text-align: center;
+    font-size: 120%;
+    font-style: italic;
+    text-shadow: 2px 2px black;
+}
+.playerStatus
+{
+    position: absolute;
+    width: 100%; height: 25%;
+    top: 50%;
+    color: white;
+}
+.pC2
+{
+    left: 30%;
+}
+.pC3
+{
+    left: 55%;
+}
+.pC4
+{
+    left: 80%;
+}
+
+#logotipoDiv
+{
+    position: relative;
+    width: 100%; height: 100%;
+    background-image: url(https://ucarecdn.com/2c104d41-e146-45bd-a102-8e81ea3d6a76/logotipo.svg);
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    background-position: -75% 10%;
+}
+
+
+.animSymbols-diamond
+{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-image: url('https://ucarecdn.com/7af8ae79-6f52-4644-9cc6-10971c9b0958/diamond.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    animation-name: animSymbol;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.animSymbols-heart
+{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-image: url('https://ucarecdn.com/9f93b691-d48b-4f87-aa7f-e50fe0701bd6/heart.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    animation-name: animSymbol;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.animSymbols-club
+{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-image: url('https://ucarecdn.com/d77ad93d-8429-4042-a031-e57e2ac54e10/club.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    animation-name: animSymbol;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.animSymbols-spade
+{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-image: url('https://ucarecdn.com/d1cd2994-9933-46c6-bb0a-2d99ba81f0ed/spade.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    animation-name: animSymbol;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes animSymbol {
+    0% {left: var(--anim_left_start); top: var(--anim_top_start);}
+    100% {left: var(--anim_left_end); top: var(--anim_top_end); transform: rotateZ(180deg);}
+}

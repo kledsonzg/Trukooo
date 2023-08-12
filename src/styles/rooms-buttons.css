@@ -1,0 +1,47 @@
+/* CSS Document */
+
+#mainButtonsPanel
+{
+    position: relative;
+    float: right;
+    width: 8%;
+    height: 480px;
+    
+    background-color: white;
+
+    box-shadow: -10px 10px #7A9D54FF;
+    border-radius: 5px;
+
+    border-style: solid;
+    border-color: #B4BB72;
+    border-left: 0px; border-right: 0px; border-bottom: 0px;
+}
+
+.divButton.homeBtn
+{
+    background: url('https://ucarecdn.com/ee8f7818-e521-462c-b066-00a5e924755c/homebuttonicon.png');
+    background-size: 70% 70%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.divButton.refreshBtn
+{
+    background: url('https://ucarecdn.com/b926fb77-d584-41f5-870e-97b7c43beb57/syncicon.png');
+    background-size: 70% 70%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    top: 10%;
+}
+.divButton
+{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    border: dashed; border-top: 0px; border-left: 0px; border-right: 0px;
+    cursor: pointer;
+}
+.divButton.mouseHover
+{
+    background-color: #B4BB7290;
+    background-size: 60% 50%;
+}

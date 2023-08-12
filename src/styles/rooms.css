@@ -1,0 +1,156 @@
+/* CSS Document */
+
+#roomsContainer
+{
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+
+    border-radius: 1cm;
+
+    box-shadow: 10px 10px #7A9D54FF;
+}
+
+.roomName
+{
+    position: absolute;
+    top: 20%;
+    left: 15px;
+    font-size: 100%;
+    color: white;
+}
+
+.roomInfo
+{
+    position: relative;
+    width: 30%;
+    height: 100%;
+    float: right;
+    right: 15px;
+}
+
+.roomConnectionInfo
+{
+    position: absolute;
+    height: 100%;
+    width: 30%;
+}
+
+.roomPeopleIcon
+{
+    position: absolute;
+    background-image: url('https://ucarecdn.com/2cfe9f82-8e45-4ce5-8069-f62e273d9a83/peopleicon.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 15px;
+    top: 30%;
+    text-decoration: none;
+}
+
+.roomPlayersCount
+{
+    text-decoration: none;
+    text-align: right;
+    font-size: medium;
+    color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 30%;
+}
+
+.roomEnterBox
+{
+    position: relative;
+    height: 80%;
+    width: 40%;
+    float: right;
+    top: 10%;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+}
+.roomEnterBox.mousehover
+{
+    background-color: #00000070; 
+}
+.roomEnterBox span
+{
+    position: relative;
+    float: right;
+    top: 20%;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60%;
+}
+.roomPlayIcon
+{
+    position: absolute;
+    background-image: url('https://ucarecdn.com/f9746091-3b89-4bc4-8e12-5b5f8c66d49e/playicon.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    top: 20%;
+    width: 20px;
+    height: 15px;
+}
+
+.roomBox
+{
+    position: absolute;
+    width: 85%;
+    height: 7%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    top: 2%;
+    left: 6.5%;
+    background-color: #B4BB72;
+    border-radius: 1cm;
+}
+.roomBox.full
+{
+    background-color: #935656;
+}
+
+.roomBox.rb1
+{
+    top: 11.5%;
+}
+.roomBox.rb2
+{
+    top: 21%;
+}
+.roomBox.rb3
+{
+    top: 30.5%;
+}
+.roomBox.rb4
+{
+    top: 40%;
+}
+.roomBox.rb5
+{
+    top: 49.5%;
+}
+.roomBox.rb6
+{
+    top: 59%;
+}
+.roomBox.rb7
+{
+    top: 68.5%;
+}
+.roomBox.rb8
+{
+    top: 78%;
+}
+.roomBox.rb9
+{
+    top: 87.5%;
+}
