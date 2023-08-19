@@ -35,7 +35,7 @@ public class Player
     public void removeCard(int index) throws Exception
     {
         if(index < 0 || index >= 3)
-            throw new Exception("Falha ao setar a carta do jogador. Index inválido: " + index + ".");
+            throw new Exception("Falha ao remover a carta do jogador. Index inválido: " + index + ".");
         
         cards[index] = null;
     }
