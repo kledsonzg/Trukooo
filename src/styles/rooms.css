@@ -100,6 +100,12 @@
     height: 15px;
 }
 
+#roomReloader
+{
+    width: 0px; height: 0px; display: none;
+    left: -100%;
+}
+
 .roomBox
 {
     position: absolute;

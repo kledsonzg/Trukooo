@@ -43,12 +43,41 @@ function OnRightPanelButtonClick(element)
         return parentPage.location.reload();
     else if(element.classList.contains('refreshBtn') )
     {
-        httpClientThread.terminate();
-        httpClientThread = GetRefreshingWorker();
+        /* httpClientThread.terminate();
+        httpClientThread = GetRefreshingWorker(); */
+        removeStatusReloaderFrame();
+        addStatusReloaderFrame();
     }
 }
 
-// HTTP Client
-var httpClientThread = GetRefreshingWorker();
+function removeStatusReloaderFrame()
+{
+    reloaderFrame = document.getElementById('roomReloader');
+    if(reloaderFrame == null)
+        return;
 
-function GetRefreshingWorker() { return (new Worker('../../scripts/rooms/rooms-status-updater.js') ); };
+    reloaderFrame.remove();
+}
+
+function addStatusReloaderFrame()
+{
+    /* Para conseguir fazer uma requisição HTTP do mesmo hostname mas com a porta diferente,
+     resolvi usar o 'iframe'. Com o 'iframe' é impossível obter um documento(s) de um host diferente, sendo assim,
+     nos possibilita fazer a comunicação com o servidor com uma porta diferente.
+
+     A porta '40020' será a porta exclusiva para fazer requisições para atualizar os status de todas as
+     salas de jogos.
+    */
+    var reloaderFrame = document.createElement('iframe');
+    reloaderFrame.src = "http://" + getPageAddress() + ':40020/frame';
+    reloaderFrame.id = 'roomReloader';
+
+    document.body.appendChild(reloaderFrame);
+}
+
+function getPageAddress()
+{
+    let address = window.location.hostname;
+    
+    return address;
+}

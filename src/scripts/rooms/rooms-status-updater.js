@@ -1,10 +1,12 @@
 const client = new XMLHttpRequest();
 
-client.addEventListener("load", function() { OnClientReceiveResponse(); } );
-client.open('GET', '127.0.0.1:2999/rooms');
+client.addEventListener("loadend", function() { OnClientReceiveResponse(); } );
+client.open('GET', 'rooms');
 client.send();
 
 function OnClientReceiveResponse()
 {
-    
+    if(client.responseText == null)
+        return;
+    console.log(client.responseText);
 }
