@@ -1,10 +1,25 @@
 package com.trukooo.util;
 
+import java.io.IOException;
+import java.net.URI;
+
 public class Utility 
 {
     public static void print(String text)
     {
         System.out.println(text);
+    }
+
+    public static String getLine() throws IOException
+    {
+        String response = "";
+        int caractere = 0;
+        while( (caractere = System.in.read() ) != 10 )
+        {
+            response += (char) caractere;
+        }
+
+        return response;
     }
 
     public static boolean isValidIP(String ip)
@@ -30,5 +45,34 @@ public class Utility
         }
 
         return true;
+    }
+
+    public static String getFileByRequestURI(URI requestURI)
+    {
+        String uri = requestURI.toString();
+        String currentFilePath = "w:/html/Trukooo/src";
+
+        if(uri.equals("/") || uri.isEmpty() )
+            currentFilePath += "/index.html";
+        else currentFilePath += uri;
+
+        return currentFilePath;
+    }
+
+    public static String getFileExtension(String filePath)
+    {
+        int index = filePath.lastIndexOf('.', filePath.length() - 1);
+        String extension = "";
+
+        if(index != -1)
+        {
+            for(int i = index; i < filePath.length(); i++)
+            {
+                extension += filePath.charAt(i);
+            }
+        }
+        else return extension;
+        
+        return extension.toLowerCase();
     }
 }
