@@ -8,7 +8,7 @@ public class Game
     
     private Player playerTurn = null;
 
-    public GameStatus status = GameStatus.GAME_STATUS_WAITING_FOR_PLAYERS;
+    private GameStatus status = GameStatus.GAME_STATUS_WAITING_FOR_PLAYERS;
 
 
     public boolean addPlayer(Player player)
@@ -43,6 +43,26 @@ public class Game
         }
 
         return result;
+    }
+
+    public Player getPlayer(int index)
+    {
+        Player resultPlayer = null;
+        if(index < 0 || index >= players.length)
+            return resultPlayer;
+        
+        resultPlayer = players[index];
+        return resultPlayer;
+    }
+
+    public int getPlayersCount()
+    {
+        int count = 0;
+        for(int i = 0; i < players.length; i++)
+            if(players[i] != null)
+                count++;
+
+        return count;
     }
 
     public void giveCardsToPlayer(Player player) throws Exception
@@ -83,5 +103,22 @@ public class Game
 
             players[i].setCard(i, new Card(CardSymbol.getCardSymbolByIndex(symbolIndex[i] ), CardCharacter.getCardCharacterByIndex(caractereIndex[i] ) ) );
         }
+    }
+
+    public GameStatus getStatus() { return status; }
+
+    private void setStatus(GameStatus gameStatus)
+    {
+        status = gameStatus;
+    }
+
+    public boolean start()
+    {
+        for(int i = 0; i < players.length; i++)
+            if(players[i] == null)
+                return false;
+        
+        setStatus(GameStatus.GAME_STATUS_RUNNING);
+        return true;
     }
 }
