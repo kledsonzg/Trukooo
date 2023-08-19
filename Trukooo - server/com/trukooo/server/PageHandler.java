@@ -1,7 +1,6 @@
 package com.trukooo.server;
 
 import java.io.*;
-import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,7 +14,7 @@ public class PageHandler implements HttpHandler
     public void handle(HttpExchange exchange) throws IOException
     {
         String responseText = "";
-        String fileRequested = getFileByRequestURI(exchange.getRequestURI() );
+        String fileRequested = Utility.getFileByRequestURI(exchange.getRequestURI() );
 
         Utility.print("File: " + fileRequested);
 
@@ -29,8 +28,8 @@ public class PageHandler implements HttpHandler
         reader.close();
 
         byte[] responseBytes = responseText.getBytes(StandardCharsets.UTF_8);
-        if(getFileExtension(fileRequested).equals(".png") )
-            responseBytes = responseText.getBytes(StandardCharsets.US_ASCII);
+        /* if(Utility.getFileExtension(fileRequested).equals(".png") )
+            responseBytes = responseText.getBytes(StandardCharsets.US_ASCII); */
         
         String type = Files.probeContentType(Path.of(fileRequested) );
         exchange.getResponseHeaders().set("Content-Type",  type);
@@ -40,34 +39,5 @@ public class PageHandler implements HttpHandler
         outStream.write(responseBytes);
         outStream.flush();
         outStream.close();
-    }
-
-    private String getFileByRequestURI(URI requestURI)
-    {
-        String uri = requestURI.toString();
-        String currentFilePath = "w:/html/Trukooo/src";
-
-        if(uri.equals("/") || uri.isEmpty() )
-            currentFilePath += "/index.html";
-        else currentFilePath += uri;
-
-        return currentFilePath;
-    }
-
-    private String getFileExtension(String filePath)
-    {
-        int index = filePath.lastIndexOf('.', filePath.length() - 1);
-        String extension = "";
-
-        if(index != -1)
-        {
-            for(int i = index; i < filePath.length(); i++)
-            {
-                extension += filePath.charAt(i);
-            }
-        }
-        else return extension;
-        
-        return extension.toLowerCase();
     }
 }
