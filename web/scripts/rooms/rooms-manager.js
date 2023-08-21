@@ -10,11 +10,32 @@ for(let i = 0; i < enter_panels.length; i++)
         OnMouseLeave(enter_panels[i] );
     } );
 
-    Array.from(document.getElementsByClassName('divButton') ).forEach(element => {
-        element.addEventListener('mouseenter', function() { OnRightPanelButtonHover(element); } );
-        element.addEventListener('mouseleave', function() { OnRightPanelButtonLeave(element); } );
-        element.addEventListener('click', function() { OnRightPanelButtonClick(element); } );
-    });
+    enter_panels[i].addEventListener('click', function()  { initializeConnectionWithGameRoom(enter_panels[i] ); } );
+}
+
+Array.from(document.getElementsByClassName('divButton') ).forEach(element => {
+    element.addEventListener('mouseenter', function() { OnRightPanelButtonHover(element); } );
+    element.addEventListener('mouseleave', function() { OnRightPanelButtonLeave(element); } );
+    element.addEventListener('click', function() { OnRightPanelButtonClick(element); } );
+});
+
+function initializeConnectionWithGameRoom(element)
+{
+    let port = 40021;
+    let gameRoom = parseInt(element.parentElement.parentElement.getElementsByClassName('roomName')[0].innerHTML.replace('Sala ', '') ) - 1;
+
+    port += gameRoom;
+    console.log('opening room with port: ' + port);
+
+    Array.from(enter_panels).forEach(element => element.remove() );
+
+    let script = parentPage.createElement('script');
+    script.setAttribute('language', 'JavaScript');
+    script.setAttribute('connector_param', port);
+    script.id = 'connector'
+    script.src = '../../scripts/rooms/connector.js';
+    
+    parentPage.head.appendChild(script);
 }
 
 function OnMouseHover(element)
@@ -43,8 +64,6 @@ function OnRightPanelButtonClick(element)
         return parentPage.location.reload();
     else if(element.classList.contains('refreshBtn') )
     {
-        /* httpClientThread.terminate();
-        httpClientThread = GetRefreshingWorker(); */
         removeStatusReloaderFrame();
         addStatusReloaderFrame();
     }
