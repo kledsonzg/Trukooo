@@ -1,4 +1,5 @@
 import com.trukooo.game.GameManager;
+import com.trukooo.spring.BCrypt;
 import com.trukooo.util.Utility;
 
 public class Program
