@@ -15,7 +15,7 @@ public class PageHandler implements HttpHandler
     public void handle(HttpExchange exchange) throws IOException
     {
         if(exchange.getRequestMethod().equalsIgnoreCase("post") )
-        {
+        {          
             handlePostResquest(exchange);
             return;
         }
@@ -52,7 +52,7 @@ public class PageHandler implements HttpHandler
         String bodyString = readStream(bodyStream);
         String uriString = exchange.getRequestURI().toString();
         String clientIP = exchange.getRemoteAddress().getHostName();
-        
+
         if(uriString.equals("/connect") == false)
         {
             sendResponse(exchange, null, 404);
@@ -64,16 +64,15 @@ public class PageHandler implements HttpHandler
             sendResponse(exchange, null, 400);
             return;
         }
-
         String playerName = bodyString.substring(beginIndex,  endIndex);
 
+        //Em 'room' obtemos o número da porta da sala.
         beginIndex = bodyString.indexOf("room: "); endIndex = bodyString.length() - 1;
         if(beginIndex == -1 || endIndex < beginIndex)
         {
             sendResponse(exchange, null, 400);
             return;
         }
-
         int port = 0;
         try 
         {
@@ -86,17 +85,16 @@ public class PageHandler implements HttpHandler
             sendResponse(exchange, null, 404);
             return;
         }
-        
-        if(GameManager.isNicknameInsideAGame(playerName) == true)
+
+        if(GameManager.isNicknameInsideAGame(playerName) == true || GameManager.getQueuePlayersCountInRoom(port) >= 4) //|| GameManager.getRunningGame(GameManager.getGameIndexByPort(port)).getPlayersCount() == 4)
         {
-            sendResponse(exchange, null, 401);
+            sendResponse(exchange, null, 409);
             return;
         }
-
         String result = Utility.hashString(clientIP + ":" + playerName + ":" + port);
-        GameManager.queuePlayer(clientIP, playerName, result, port);
+        GameManager.queuePlayer(clientIP, playerName, result, port);  
         
-        sendResponse(exchange, result.getBytes(), 200);
+        sendResponse(exchange, ("playerkey: " + result).getBytes(), 200);
     }
 
     private void sendResponse(HttpExchange exchange, byte[] responseBytes, int code) throws IOException

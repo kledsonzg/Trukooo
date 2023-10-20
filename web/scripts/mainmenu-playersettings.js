@@ -42,9 +42,10 @@ function SetPlayerName(playerName)
     if(parentPage.cookie.length < 1)
     {
         xmlContent = new Document();
+        xmlContent.appendChild(xmlContent.createElement('data') );
         var nameNode = xmlContent.createElement('playername');
         nameNode.innerHTML = playerName;
-        xmlContent.appendChild(nameNode);
+        xmlContent.firstChild.appendChild(nameNode);
     }
     else
     {

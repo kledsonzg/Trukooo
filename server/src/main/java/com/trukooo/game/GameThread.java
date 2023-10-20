@@ -29,6 +29,7 @@ public class GameThread extends Thread
         {
             HttpServer gameServer = HttpServer.create(new InetSocketAddress(hostName, port), 0);
             gameServer.createContext("/", new GameServer() );
+            gameServer.createContext("/game", new GameServer() );
             gameServer.start();
         }
         catch(Exception e)
