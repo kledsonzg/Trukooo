@@ -1,8 +1,10 @@
 package com.trukooo.util;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
-import org.springframework.security.crypto.bcrypt.*;
+import java.nio.charset.StandardCharsets;
+import com.trukooo.spring.BCrypt;
 
 public class Utility 
 {
@@ -78,9 +80,34 @@ public class Utility
         return extension.toLowerCase();
     }
 
+    public static String readFile(String file)
+    {
+        String result = "";
+        try
+        {
+            FileReader reader = new FileReader(file, StandardCharsets.UTF_8);
+            int i = -1;
+            while( (i = reader.read() ) != -1)
+            {
+                result += (char) i;
+            }
+            reader.close();
+        }
+        catch(Exception e)
+        {
+            print("Falha ao ler um arquivo. (Utility.readFile)");
+            print(e.getMessage() );
+        }
+
+        return result;
+    }
+
     public static String hashString(String textToHash)
     {
-        return BCrypt.hashpw(textToHash, BCrypt.gensalt() );
+        print("Generating hash...");
+        String result = BCrypt.hashpw(textToHash, BCrypt.gensalt() );
+        print("result: " + result);
+        return result;
     }
 
     public static boolean validateHash(String hash, String key)
