@@ -11,15 +11,6 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring-security.version>6.1.2</spring-security.version>
-        <spring.version>5.2.8.RELEASE</spring.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>${spring-security.version}</version>
-        </dependency>
-    </dependencies>
 </project>
