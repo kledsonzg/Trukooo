@@ -64,10 +64,10 @@ public class PageHandler implements HttpHandler
             sendResponse(exchange, null, 400);
             return;
         }
-        String playerName = bodyString.substring(beginIndex,  endIndex);
+        String playerName = bodyString.substring(beginIndex + ("playername: ").length(),  endIndex);
 
         //Em 'room' obtemos o número da porta da sala.
-        beginIndex = bodyString.indexOf("room: "); endIndex = bodyString.length() - 1;
+        beginIndex = bodyString.indexOf("room: "); endIndex = bodyString.length();
         if(beginIndex == -1 || endIndex < beginIndex)
         {
             sendResponse(exchange, null, 400);
